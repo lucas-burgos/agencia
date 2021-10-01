@@ -25,7 +25,7 @@ if (!$_SESSION['usuario']) {
     $telefono="";
     require('clases/conexion.php');
 require('clases/telefono.class.php');
-$base = new BaseDeDatosmysqli("localhost","sintonia_lucas","Dbzbt4","sintonia_agencia");
+$base = new BaseDeDatosmysqli("localhost","elturqui_admin","rionegro","elturqui_agencia");
 $tel = new telefono($base);
 if (isset($_GET['editar'])) {
     $ID=$_GET['id'];

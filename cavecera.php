@@ -6,9 +6,9 @@ $celular= $tel->getTelefonos();
 <div class="container">
         <header class="row">
 <div class="col-md-12 col-xs-1-12">
-  <h1>Agencia el Turquito</h1>
+  <h1><?php echo $consulta[0]['titulo']; ?> "<small class="text-muted"><?php echo $consulta[0]['descripcion_pagina']; ?></<small>"</h1>
 </div>
-<div class="col-lg-9 offset-lg-1 col-md-9 offset-md-1 col-sm-12" style="color: red;">
+<div class="text-center col-lg-12 col-md-12 col-sm-12" style="color: red;">
   <nav class="navbar navbar-expand-lg" style="background-color: #90EE90;">
   <a class="navbar-brand" href="#">
       <img src="img/<?php echo $consulta[0]['logo']; ?>" alt="<?php echo $consulta[0]['descripcion_logo']; ?>" width="50" height="70">
@@ -50,32 +50,34 @@ $celular= $tel->getTelefonos();
             </div>
             <div class="modal-body">
             <div class="row">
-    <form role="form" id="contact-form" class="contact-form" action="index.php" method="POST">
-                    <div class="row">
-                        <div class="col-md-6">
+    <script type="text/javascript" src="js/app.js"></script>
+    <script async src="https://www.google.com/recaptcha/api.js"></script>
+                    <form name="formulario_contacto" id="formulario_contacto" enctype="multipart/form-data">
+
                         <div class="form-group">
-                            <input type="text" class="form-control" name="Name" autocomplete="off" id="Name" placeholder="Nombre">
+                            <label for="nya" class="txt_negrita">Nombres y Apellidos</label>
+                            <input type="text" class="form-control" name="nya" id="nya" aria-describedby="nyaHelp">
+                            <small id="nyaHelp" class="form-text text-muted">Ejemplo: Jose Juan Perez Diaz</small>
                         </div>
-                    </div>
-                        <div class="col-md-6">
+
                         <div class="form-group">
-                            <input type="email" class="form-control" name="email" autocomplete="off" id="email" placeholder="Correo electrónico">
+                            <label for="email" class="txt_negrita">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+                            <small id="emailHelp" class="form-text text-muted">Ejemplo: email@gmail.com</small>
                         </div>
-                    </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
+
                         <div class="form-group">
-                            <textarea class="form-control textarea" rows="3" name="Message" id="Message" placeholder="Escribe tu mensaje"></textarea>
+                            <label for="mensaje" class="txt_negrita">Mensaje</label>
+                            <textarea type="text" class="form-control" name="mensaje" id="mensaje" aria-describedby="mensajeHelp"></textarea>
                         </div>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-md-12">
-                  <button type="submit" class="btn main-btn pull-right">Envía tu mensaje</button>
-                  </div>
-                  </div>
-                </form>
+                        <div class="g-recaptcha" data-sitekey="6LfgFZ8cAAAAABljA7BK5jKfMVbsgRjo2D0rzLyW"></div>
+                        <!-- Mensajes de Validación -->
+                        <div class="msg mt-3 mb-3"></div>
+
+                        <button type="submit" class="btn btn-primary" id="btnenviar" name="btnenviar">Enviar</button>
+
+                    </form>
+
     </div>
             </div>
             <div class="modal-footer">
@@ -88,8 +90,5 @@ $celular= $tel->getTelefonos();
 </ul>
       </div>
   </nav>
-</div>
-<div class="col-lg-2 col-md-2 col-sm-12">
-<p><?php echo $consulta[0]['descripcion_pagina']; ?></p>
 </div>
 </header>

@@ -4,10 +4,10 @@ require('clases/conexion.php');
 require('clases/usuarios.class.php');
 include('clases/clsFiltroSql.php');
 include('clases/password.php');
-$con=mysqli_connect("localhost","sintonia_lucas","Dbzbt4","sintonia_agencia");    
+$con=mysqli_connect("localhost","elturqui_admin","rionegro","elturqui_agencia");    
 $filtro = new clsFiltroSql($con);
 
-$base = new BaseDeDatosmysqli("localhost","sintonia_lucas","Dbzbt4","sintonia_agencia");
+$base = new BaseDeDatosmysqli("localhost","elturqui_admin","rionegro","elturqui_agencia");
 $us = new usuarios($base);
 if (isset($_SESSION['usuario'])) {
     header("location: index.php");

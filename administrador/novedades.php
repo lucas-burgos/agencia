@@ -26,7 +26,7 @@ if (!$_SESSION['usuario']) {
     $novedad="";
     require('clases/conexion.php');
 require('clases/novedades.class.php');
-$base = new BaseDeDatosmysqli("localhost","sintonia_lucas","Dbzbt4","sintonia_agencia");
+$base = new BaseDeDatosmysqli("localhost","elturqui_admin","rionegro","elturqui_agencia");
 $novedades = new novedades($base);
 if (isset($_GET['editar'])) {
     $ID=$_GET['id'];

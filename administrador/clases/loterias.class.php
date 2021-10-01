@@ -69,6 +69,16 @@ class loterias{
 }
 
 public function premios($url) {
+    date_default_timezone_set('America/Argentina/Buenos_Aires');
+
+    setlocale(LC_ALL,"es_ES");
+    
+    $hora=date("H:i");
+    $primera=date("11:45");
+    $matutina=date("15:15");
+    $vespertina=date("18:30");
+    $nocturna=date("21:05");
+    
     //Es posible que cuando pruebes este proxy no este activo, en caso de ser asi, busca uno
     //que si lo este en cualquier pagina de proxies gratuitos en internet
     $proxyurl = '88.198.50.103:8080';
@@ -88,6 +98,9 @@ public function premios($url) {
     }
 ?>    
     <div class="col-md-2 offset-md-1">
+<?php
+if ($hora >= $primera) {
+    ?>
     <h4 class="text-center">Primera</h4>
     <table class="text-center table table-bordered table-inverse table-responsive" style="background-color:blue; color:yellow;">
             <thead class="thead-inverse">
@@ -99,31 +112,39 @@ public function premios($url) {
 <tbody>
 <?php
 $k=0;
-$r=19;
-$p=18;
-for($b = 1; $b < 21; $b++) {
-echo '<tr>';
-if ($b == 11) {
-$p=20;
-$r=21;
-}
-echo '<td>';
-print_r($tablas[$p]);
-echo '</td>';
-echo '<td>';
-print_r($tablas[$r]);
-echo '</td>';
-echo '</tr>';
-$k = ($k - $k + 4);
-$p = ($p + $k);
-$r = ($r + $k);
-$k = ($k - 2);
-}
-?>
+    $r=19;
+    $p=18;
+    for ($b = 1; $b < 21; $b++) {
+        echo '<tr>';
+        if ($b == 11) {
+            $p=20;
+            $r=21;
+        }
+        echo '<td>';
+        print_r($tablas[$p]);
+        echo '</td>';
+        echo '<td>';
+        print_r($tablas[$r]);
+        echo '</td>';
+        echo '</tr>';
+        $k = ($k - $k + 4);
+        $p = ($p + $k);
+        $r = ($r + $k);
+        $k = ($k - 2);
+    } ?>
 </tbody>
 </table>
-    </div>
+<?php
+}
+else {
+    echo 'Todavía no se a sorteado la primera';
+}
+?>
+</div>
     <div class="col-md-2 offset-md-1">
+<?php
+if ($hora >= $matutina) {
+    ?>
     <h4 class="text-center">Matutina</h4>
     <table class="text-center table table-bordered table-inverse table-responsive" style="background-color:blue; color:yellow;">
             <thead class="thead-inverse">
@@ -135,31 +156,39 @@ $k = ($k - 2);
 <tbody>
 <?php
 $k=0;
-$r=65;
-$p=64;
-for($b = 1; $b < 21; $b++) {
-echo '<tr>';
-if ($b == 11) {
-$p=66;
-$r=67;
-}
-echo '<td>';
-print_r($tablas[$p]);
-echo '</td>';
-echo '<td>';
-print_r($tablas[$r]);
-echo '</td>';
-echo '</tr>';
-$k = ($k - $k + 4);
-$p = ($p + $k);
-$r = ($r + $k);
-$k = ($k - 2);
-}
-?>
+    $r=65;
+    $p=64;
+    for ($b = 1; $b < 21; $b++) {
+        echo '<tr>';
+        if ($b == 11) {
+            $p=66;
+            $r=67;
+        }
+        echo '<td>';
+        print_r($tablas[$p]);
+        echo '</td>';
+        echo '<td>';
+        print_r($tablas[$r]);
+        echo '</td>';
+        echo '</tr>';
+        $k = ($k - $k + 4);
+        $p = ($p + $k);
+        $r = ($r + $k);
+        $k = ($k - 2);
+    } ?>
 </tbody>
 </table>
+<?php
+}
+else {
+echo 'Todavía no se a sorteado la matutina';
+}
+?>
 </div>
 <div class="col-md-2 offset-md-1">
+<?php
+if ($hora >= $vespertina) {
+    ?>
 <h4 class="text-center">Vespertina</h4>
     <table class="text-center table table-bordered table-inverse table-responsive" style="background-color:blue; color:yellow;">
             <thead class="thead-inverse">
@@ -171,31 +200,39 @@ $k = ($k - 2);
 <tbody>
 <?php
 $k=0;
-$r=111;
-$p=110;
-for($b = 1; $b < 21; $b++) {
-echo '<tr>';
-if ($b == 11) {
-$p=112;
-$r=113;
-}
-echo '<td>';
-print_r($tablas[$p]);
-echo '</td>';
-echo '<td>';
-print_r($tablas[$r]);
-echo '</td>';
-echo '</tr>';
-$k = ($k - $k + 4);
-$p = ($p + $k);
-$r = ($r + $k);
-$k = ($k - 2);
-}
-?>
+    $r=111;
+    $p=110;
+    for ($b = 1; $b < 21; $b++) {
+        echo '<tr>';
+        if ($b == 11) {
+            $p=112;
+            $r=113;
+        }
+        echo '<td>';
+        print_r($tablas[$p]);
+        echo '</td>';
+        echo '<td>';
+        print_r($tablas[$r]);
+        echo '</td>';
+        echo '</tr>';
+        $k = ($k - $k + 4);
+        $p = ($p + $k);
+        $r = ($r + $k);
+        $k = ($k - 2);
+    } ?>
 </tbody>
 </table>
+<?php
+}
+else {
+    echo 'Todavía no se a sorteado la vespertina';
+}
+?>
 </div>
 <div class="col-md-2 offset-md-1">
+<?php
+if ($hora >= $nocturna) {
+    ?>
 <h4 class="text-center">Nocturna</h4>
     <table class="text-center table table-bordered table-inverse table-responsive" style="background-color:blue; color:yellow;">
             <thead class="thead-inverse">
@@ -207,29 +244,34 @@ $k = ($k - 2);
 <tbody>
 <?php
 $k=0;
-$r=156;
-$p=157;
-for($b = 1; $b < 21; $b++) {
-echo '<tr>';
-if ($b == 11) {
-$p=158;
-$r=159;
-}
-echo '<td>';
-print_r($tablas[$p]);
-echo '</td>';
-echo '<td>';
-print_r($tablas[$r]);
-echo '</td>';
-echo '</tr>';
-$k = ($k - $k + 4);
-$p = ($p + $k);
-$r = ($r + $k);
-$k = ($k - 2);
-}
-?>
+    $r=156;
+    $p=157;
+    for ($b = 1; $b < 21; $b++) {
+        echo '<tr>';
+        if ($b == 11) {
+            $p=158;
+            $r=159;
+        }
+        echo '<td>';
+        print_r($tablas[$p]);
+        echo '</td>';
+        echo '<td>';
+        print_r($tablas[$r]);
+        echo '</td>';
+        echo '</tr>';
+        $k = ($k - $k + 4);
+        $p = ($p + $k);
+        $r = ($r + $k);
+        $k = ($k - 2);
+    } ?>
 </tbody>
 </table>
+<?php
+}
+else {
+    echo 'Todavía no se a sorteado la nocturna';
+}
+?>
 </div>
 <?php
     
@@ -248,15 +290,27 @@ $k = ($k - 2);
                         'ignore_errors' => true, 
                         'max_redirects' => 3)
                         );
-                        $html = file_get_html($url, 0, $context);
+                        $html = file_get_html($url);
         
-        
+                        date_default_timezone_set('America/Argentina/Buenos_Aires');
+
+                        setlocale(LC_ALL,"es_ES");
+                        
+                        $hora=date("H:i");
+                        $primera=date("11:45");
+                        $matutina=date("15:15");
+                        $vespertina=date("18:30");
+                        $nocturna=date("21:05");
+                          
             $tablas = array(); 
             foreach($html->find("div") as $a) {
                 $tablas[] = $a->plaintext;
             }
         ?>
         <div class="col-md-2 offset-md-1">
+<?php
+if ($hora >= $primera) {
+    ?>
         <h4 class="text-center">Primera</h4>
         <table class="text-center table table-bordered table-inverse table-responsive" style="background-color:blue; color:yellow;">
             <thead class="thead-inverse">
@@ -268,32 +322,39 @@ $k = ($k - 2);
         <tbody>
         <?php
 $k=0;
-$r=19;
-$p=18;
-for($b = 1; $b < 21; $b++) {
-echo '<tr>';
-if ($b == 11) {
-$p=20;
-$r=21;
-}
-echo '<td>';
-print_r($tablas[$p]);
-echo '</td>';
-echo '<td>';
-print_r($tablas[$r]);
-echo '</td>';
-echo '</tr>';
-$k = ($k - $k + 4);
-$p = ($p + $k);
-$r = ($r + $k);
-$k = ($k - 2);
-}
-?>
+    $r=19;
+    $p=18;
+    for ($b = 1; $b < 21; $b++) {
+        echo '<tr>';
+        if ($b == 11) {
+            $p=20;
+            $r=21;
+        }
+        echo '<td>';
+        print_r($tablas[$p]);
+        echo '</td>';
+        echo '<td>';
+        print_r($tablas[$r]);
+        echo '</td>';
+        echo '</tr>';
+        $k = ($k - $k + 4);
+        $p = ($p + $k);
+        $r = ($r + $k);
+        $k = ($k - 2);
+    } ?>
 </tbody>
 </table>
+<?php
+} else {
+    echo 'Todavía no se a sorteado la primera';
+}
+?>
 </div>
         <div class="col-md-2 offset-md-1">
-    <h4 class="text-center">Matutina</h4>
+<?php
+if ($hora >= $matutina) {
+    ?>
+        <h4 class="text-center">Matutina</h4>
         <table class="text-center table table-bordered table-inverse table-responsive" style="background-color:blue; color:yellow;">
             <thead class="thead-inverse">
             <tr>
@@ -304,31 +365,38 @@ $k = ($k - 2);
 <tbody>
 <?php
 $k=0;
-$r=66;
-$p=65;
-for($b = 1; $b < 21; $b++) {
-echo '<tr>';
-if ($b == 11) {
-$p=67;
-$r=68;
-}
-echo '<td>';
-print_r($tablas[$p]);
-echo '</td>';
-echo '<td>';
-print_r($tablas[$r]);
-echo '</td>';
-echo '</tr>';
-$k = ($k - $k + 4);
-$p = ($p + $k);
-$r = ($r + $k);
-$k = ($k - 2);
-}
-?>
+    $r=66;
+    $p=65;
+    for ($b = 1; $b < 21; $b++) {
+        echo '<tr>';
+        if ($b == 11) {
+            $p=67;
+            $r=68;
+        }
+        echo '<td>';
+        print_r($tablas[$p]);
+        echo '</td>';
+        echo '<td>';
+        print_r($tablas[$r]);
+        echo '</td>';
+        echo '</tr>';
+        $k = ($k - $k + 4);
+        $p = ($p + $k);
+        $r = ($r + $k);
+        $k = ($k - 2);
+    } ?>
 </tbody>
 </table>
+<?php
+} else {
+    echo 'Todavía no se a sorteado la matutina';
+}
+?>
 </div>
     <div class="col-md-2 offset-md-1">
+<?php
+if ($hora >= $vespertina) {
+    ?>
     <h4 class="text-center">Vespertina</h4>
         <table class="text-center table table-bordered table-inverse table-responsive" style="background-color:blue; color:yellow;">
             <thead class="thead-inverse">
@@ -340,31 +408,39 @@ $k = ($k - 2);
 <tbody>
 <?php
 $k=0;
-$r=113;
-$p=112;
-for($b = 1; $b < 21; $b++) {
-echo '<tr>';
-if ($b == 11) {
-$p=114;
-$r=115;
-}
-echo '<td>';
-print_r($tablas[$p]);
-echo '</td>';
-echo '<td>';
-print_r($tablas[$r]);
-echo '</td>';
-echo '</tr>';
-$k = ($k - $k + 4);
-$p = ($p + $k);
-$r = ($r + $k);
-$k = ($k - 2);
-}
-?>
+    $r=113;
+    $p=112;
+    for ($b = 1; $b < 21; $b++) {
+        echo '<tr>';
+        if ($b == 11) {
+            $p=114;
+            $r=115;
+        }
+        echo '<td>';
+        print_r($tablas[$p]);
+        echo '</td>';
+        echo '<td>';
+        print_r($tablas[$r]);
+        echo '</td>';
+        echo '</tr>';
+        $k = ($k - $k + 4);
+        $p = ($p + $k);
+        $r = ($r + $k);
+        $k = ($k - 2);
+    } ?>
 </tbody>
 </table>
-    </div>
+<?php
+} 
+else {
+    echo 'Todavía no se a sorteado la vespertina';
+}
+?>
+</div>
     <div class="col-md-2 offset-md-1">
+<?php
+if ($hora >= $nocturna) {
+    ?>
     <h4 class="text-center">Nocturna</h4>
     <table class="text-center table table-bordered table-inverse table-responsive" style="background-color:blue; color:yellow;">
             <thead class="thead-inverse">
@@ -376,30 +452,35 @@ $k = ($k - 2);
 <tbody>
 <?php
 $k=0;
-$r=160;
-$p=159;
-for($b = 1; $b < 21; $b++) {
-echo '<tr>';
-if ($b == 11) {
-$p=161;
-$r=162;
-}
-echo '<td>';
-print_r($tablas[$p]);
-echo '</td>';
-echo '<td>';
-print_r($tablas[$r]);
-echo '</td>';
-echo '</tr>';
-$k = ($k - $k + 4);
-$p = ($p + $k);
-$r = ($r + $k);
-$k = ($k - 2);
+    $r=160;
+    $p=159;
+    for ($b = 1; $b < 21; $b++) {
+        echo '<tr>';
+        if ($b == 11) {
+            $p=161;
+            $r=162;
+        }
+        echo '<td>';
+        print_r($tablas[$p]);
+        echo '</td>';
+        echo '<td>';
+        print_r($tablas[$r]);
+        echo '</td>';
+        echo '</tr>';
+        $k = ($k - $k + 4);
+        $p = ($p + $k);
+        $r = ($r + $k);
+        $k = ($k - 2);
+    } 
+    ?>
+        </tbody>
+        </table>
+<?php
+} else {
+    echo 'Todavía no se a sorteado la nocturna';
 }
 ?>
-</tbody>
-</table>
-        </div>
+    </div>
     <?php
         
         $html->clear();

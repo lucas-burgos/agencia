@@ -108,10 +108,9 @@ require('administrador/clases/novedades.class.php');
 ?>
 </div>
 </section>
-<footer>
-  <h2>Seguinos en nuestras redes</h2>
-  <p><i class="fas fa-facebook-square    "></i> Facebook</p>
-</footer>
+<?php
+include('footer.php');
+?>
 </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
